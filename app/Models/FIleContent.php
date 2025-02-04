@@ -5,8 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class PdfContent extends Model
+class FileContent extends Model
 {
+    protected $table = 'file_contents';
+    
     use SoftDeletes;
 
     protected $fillable = [

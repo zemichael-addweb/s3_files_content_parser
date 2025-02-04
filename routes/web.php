@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\PdfContentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +18,18 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/pdf-content', function () {
-    return Inertia::render('PdfContent');
-})->middleware(['auth', 'verified'])->name('pdf-content');
+Route::get('/file-content', function () {
+    return Inertia::render('FileContent');
+})->middleware(['auth', 'verified'])->name('file-content');
+
+// media content
+Route::get('/media-content', function () {
+    return Inertia::render('MediaContent');
+})->middleware(['auth', 'verified'])->name('media-content');
+
+Route::get('/media-playground', function () {
+    return Inertia::render('MediaPlayground');
+})->middleware(['auth', 'verified'])->name('media-playground');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
